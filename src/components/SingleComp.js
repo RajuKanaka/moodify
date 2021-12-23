@@ -45,7 +45,7 @@ const SingleComp = ({ e, id }) => {
             setCurElementState({ ...curElementState, isPlaying: false });
             musicArray.find((ele) => ele.name === e.name).isPlaying = false;
 
-            if (isAllPaused() === false) {
+            if (musicArray.some((element) => {return element.isPlaying}) === false) {
               setIsPlay(false);
             }
           }
