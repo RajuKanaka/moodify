@@ -6,6 +6,17 @@
 }
 body {
   position: relative;
+  background: linear-gradient(
+    60deg,
+    #579533,
+    #f53055,
+    #ef4e7b,
+    #a166ab,
+    #0b101a,
+    #1098ad,
+    #07b39b,
+    #122016
+  );
 }
 
 ul.n-ul {
@@ -37,17 +48,7 @@ ul.n-ul {
 }
 
 .a-grid {
-  background: linear-gradient(
-    60deg,
-    #579533,
-    #f53055,
-    #ef4e7b,
-    #a166ab,
-    #0b101a,
-    #1098ad,
-    #07b39b,
-    #122016
-  );
+  
   position: relative;
   padding-top: 20px;
   display: grid;
