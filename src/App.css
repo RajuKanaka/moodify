@@ -17,6 +17,8 @@ body {
     #07b39b,
     #122016
   );
+  animation: spin 10s alternate infinite;
+  background-size: 300% 300%;
 }
 
 ul.n-ul {
@@ -55,8 +57,7 @@ ul.n-ul {
   grid-template-columns: repeat(4, 1fr);
   row-gap: 20px;
   place-items: center;
-  animation: spin 10s alternate infinite;
-  background-size: 300% 300%;
+  
 }
 #box {
   height: 200px;
