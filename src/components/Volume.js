@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import Slider from "@mui/material/Slider";
-import IconButton from "@mui/material/IconButton";
-import VolumeDownIcon from "@mui/icons-material/VolumeDown";
-import VolumeOffIcon from "@mui/icons-material/VolumeOff";
-import VolumeUpIcon from "@mui/icons-material/VolumeUp";
+import React, { useState } from 'react';
+import Slider from '@mui/material/Slider';
+import IconButton from '@mui/material/IconButton';
+import VolumeDownIcon from '@mui/icons-material/VolumeDown';
+import VolumeOffIcon from '@mui/icons-material/VolumeOff';
+import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 
 const Volume = ({ ele, id }) => {
   const Volume = localStorage.getItem(`${ele.name}`);
@@ -20,10 +20,12 @@ const Volume = ({ ele, id }) => {
 
   const handleMuteButtonClick = () => {
     setVolume(0);
+    ele.audio.volume = 0;
   };
 
   const handleMaxVolumeButtonClick = () => {
     setVolume(100);
+    ele.audio.volume = 1;
   };
   return (
     <div className="volume-slider">

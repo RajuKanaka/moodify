@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
-import Volume from "./Volume";
-import gifer from "../Assests/images/animated-background.gif";
-import { useAppContext } from "../Hooks/Context";
+import React, { useState, useEffect, useRef } from 'react';
+import Volume from './Volume';
+import gifer from '../Assests/images/animated-background.gif';
+import { useAppContext } from '../Hooks/Context';
 const SingleComp = ({ e, id }) => {
   const firstUpdate = useRef(false);
   const { musicArray, setIsPlay, isAllPaused } = useAppContext();
@@ -16,10 +16,10 @@ const SingleComp = ({ e, id }) => {
       return;
     }
     setCurElementState(curElement);
-  }, [curElementState]);
+  }, [curElementState, curElement]);
 
-  function playAud() {
-    curElement.audio.play();
+  async function playAud() {
+    await curElement.audio.play();
     curElement.audio.loop = true;
   }
   function pauseAud() {
@@ -30,8 +30,8 @@ const SingleComp = ({ e, id }) => {
     <div className="a-gridItem" id="box">
       <div
         style={{
-          backgroundImage: `url(${curElementState.isPlaying ? gifer : ""})`,
-          backgroundSize: "cover",
+          backgroundImage: `url(${curElementState.isPlaying ? gifer : ''})`,
+          backgroundSize: 'cover',
         }}
         className="a-itemLogo"
         onClick={() => {
@@ -45,7 +45,11 @@ const SingleComp = ({ e, id }) => {
             setCurElementState({ ...curElementState, isPlaying: false });
             musicArray.find((ele) => ele.name === e.name).isPlaying = false;
 
-            if (musicArray.some((element) => {return element.isPlaying}) === false) {
+            if (
+              musicArray.some((element) => {
+                return element.isPlaying;
+              }) === false
+            ) {
               setIsPlay(false);
             }
           }
@@ -55,7 +59,7 @@ const SingleComp = ({ e, id }) => {
           style={
             curElementState.isPlaying
               ? {
-                  paddingTop: "70px",
+                  paddingTop: '70px',
                 }
               : null
           }
@@ -67,7 +71,7 @@ const SingleComp = ({ e, id }) => {
           style={
             curElementState.isPlaying
               ? {
-                  paddingTop: "20px",
+                  paddingTop: '20px',
                 }
               : null
           }

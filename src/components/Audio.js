@@ -23,7 +23,6 @@ const Audios = () => {
       PauseAll();
       musicArray.forEach((ele) => {
         const Volume = localStorage.getItem(`${ele.name}`);
-        console.log(Volume);
         if (Volume !== null) {
           ele.isPlaying = true;
           ele.audio.volume = Volume;
