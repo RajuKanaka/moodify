@@ -53,6 +53,9 @@ const Navbar = () => {
               onClick={() => {
                 setShowPopUp(true);
                 setMessage("SAVED!");
+                setTimeout(() => {
+                  setShowPopUp(false)
+                }, 1500)
                 musicArray.forEach((Element) => {
                   if (Element.isPlaying === true) {
                     localStorage.setItem(

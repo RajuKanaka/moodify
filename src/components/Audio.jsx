@@ -1,4 +1,4 @@
-import SingleComp from "./SingleComp";
+import AudioItem from "./AudioItem";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import PauseSharpIcon from "@mui/icons-material/PauseSharp";
 import Popup from "./Popup";
@@ -6,13 +6,13 @@ import { useAppContext } from "../Hooks/Context";
 const Audios = () => {
   const {
     musicArray,
-    message,
     setMessage,
     ShowPopUp,
     setShowPopUp,
     isPlay,
     setIsPlay,
     PauseAll,
+    isAllPaused
   } = useAppContext();
 
   const HandlePlay = () => {
@@ -29,6 +29,9 @@ const Audios = () => {
           setIsPlay(true);
           setMessage("Playing from saved!");
           setShowPopUp(true);
+          setTimeout(() => {
+            setShowPopUp(false)
+          }, 1500)
         }
       });
     }
@@ -37,10 +40,10 @@ const Audios = () => {
     <div className="a-grid">
       {musicArray &&
         musicArray.map((e, id) => {
-          return <SingleComp id={id} e={e} key={id} />;
+          return <AudioItem id={id} e={e} key={id} />;
         })}
       <div onClick={HandlePlay} className="a-play">
-        {isPlay ? <PauseSharpIcon /> : <PlayArrowIcon />}
+        {isAllPaused() ? <PauseSharpIcon /> : <PlayArrowIcon />}
       </div>
       {ShowPopUp ? <Popup /> : null}
     </div>

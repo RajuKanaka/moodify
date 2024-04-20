@@ -18,9 +18,11 @@ const Context = ({ children }) => {
     });
   };
 
-  const isAllPaused = ()=>{ musicArray.some((element) => {
-    return element.isPlaying;
-  })};
+  const isAllPaused = () => {
+    return musicArray.some((element) => {
+      return element.isPlaying;
+    })
+  };
 
   return (
     <appContext.Provider
